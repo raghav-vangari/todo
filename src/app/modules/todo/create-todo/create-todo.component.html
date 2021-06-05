@@ -7,17 +7,18 @@
         <mat-tab label="Create">
           <mat-form-field class="example-full-width">
             <mat-label>Name</mat-label>
-            <input type="text" matInput placeholder="Name" value="" >
+            <input type="text" matInput placeholder="Name" value="" [(ngModel)]="todo.name">
           </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>User</mat-label>
-            <input type="text" matInput placeholder="User">
-          </mat-form-field>
-          <button mat-button color="primary" >Create</button>
+          <button mat-button color="primary" (click)="addTodo()" >Add</button>
         </mat-tab>
       </mat-tab-group>
     </mat-card-content>
   </mat-card>
+  <div class="item" *ngFor="let todo of todolist | async">
+    <div>user : {{ todo.user }}</div>
+    <div>{{ todo.timestamp }}</div>
+    <div>{{ todo.name }}</div>
+  </div>
 </div>
 

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from '../../../store/models/todo.model';
+import {Observable} from "rxjs";
+import {Store} from "@ngrx/store";
+import {ListTodoModel} from "../../../store/models/listTodo.model";
+import { AddTodoAction, DeleteTodoAction } from '../../../store/actions/todo.action';
 
 @Component({
   selector: 'app-create-todo',
@@ -7,9 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateTodoComponent implements OnInit {
 
-  constructor() { }
+  todo: Todo = {user: '', name: '', timestamp: 0};
 
-  ngOnInit(): void {
+  todolist: Observable<Array<Todo>>;
+
+  constructor(private store: Store<ListTodoModel>) {
+
   }
 
+  ngOnInit(): void {
+    this.todolist = this.store.select(store => store.listTodo);
+  }
+
+  addTodo() {
+    this.todo.user = localStorage.getItem('ACCESS_TOKEN');
+    this.store.dispatch(new AddTodoAction(this.todo));
+    this.todolist = this.store.select(store => store.listTodo);
+    console.log('in create list ', this.todolist)
+    this.todo = {user: '', name: '', timestamp: 0};
+  }
 }

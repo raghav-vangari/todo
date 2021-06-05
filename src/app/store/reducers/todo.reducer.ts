@@ -11,6 +11,7 @@ const initialState: Array<Todo> = [
 export function TodoReducer(state: Array<Todo> = initialState, action: TodoActions) {
   switch (action.type) {
     case "ADD_TODO":
+      console.log('reducer ' + action.payload)
       return [...state, action.payload];
 
     case "DELETE_TODO":

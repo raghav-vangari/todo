@@ -1,1 +1,7 @@
 <p>list-todo works!</p>
+
+<div class="item" *ngFor="let todo of todolist | async">
+  <div>user : {{ todo.user }}</div>
+  <div>{{ todo.timestamp }}</div>
+  <div>{{ todo.name }}</div>
+</div>

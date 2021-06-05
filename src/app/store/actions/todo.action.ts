@@ -6,7 +6,9 @@ export const DELETE_TODO = 'DELETE_TODO';
 
 export class AddTodoAction implements Action {
   readonly type = ADD_TODO;
+
   constructor(public payload: Todo) {
+    console.log(payload)
   }
 }
 

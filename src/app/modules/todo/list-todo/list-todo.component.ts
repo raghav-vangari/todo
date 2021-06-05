@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from '../../../store/models/todo.model';
+import { ListTodoModel } from '../../../store/models/listTodo.model';
+import { Observable } from 'rxjs';
+import {Store} from "@ngrx/store";
+
 
 @Component({
   selector: 'app-list-todo',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTodoComponent implements OnInit {
 
-  constructor() { }
+  todolist: Observable<Array<Todo>>;
+
+  constructor(private store: Store<ListTodoModel>) {
+  }
 
   ngOnInit(): void {
+    this.todolist = this.store.select(store => store.listTodo);
+    console.log('list ', this.todolist);
   }
+
 
 }
