@@ -18,7 +18,7 @@ export class ListTodoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.todolist = this.store.select(store => store.listTodo);
+    this.todolist = this.store.select(store => store.todoList);
     console.log('list ', this.todolist);
   }
 

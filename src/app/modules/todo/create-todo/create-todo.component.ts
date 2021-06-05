@@ -21,13 +21,13 @@ export class CreateTodoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.todolist = this.store.select(store => store.listTodo);
+    this.todolist = this.store.select(store => store.todoList);
   }
 
   addTodo() {
     this.todo.user = localStorage.getItem('ACCESS_TOKEN');
     this.store.dispatch(new AddTodoAction(this.todo));
-    this.todolist = this.store.select(store => store.listTodo);
+    this.todolist = this.store.select(store => store.todoList);
     console.log('in create list ', this.todolist)
     this.todo = {user: '', name: '', timestamp: 0};
   }
