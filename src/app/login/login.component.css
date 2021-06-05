@@ -15,7 +15,6 @@
 .center-content{
   margin-top: 50px;
   text-align: -webkit-center;
-  background: #16bca8;
 }
 
 .example-form {
@@ -40,4 +39,8 @@
 
 .mat-card-header{
   justify-content: center;
+}
+
+body{
+  background: #16bca8;
 }
