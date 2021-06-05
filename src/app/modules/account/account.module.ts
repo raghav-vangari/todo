@@ -9,6 +9,9 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     CommonModule
   ],
+  exports: [
+    ProfileComponent
+  ],
   providers: [ProfileService]
 })
 export class AccountModule { }

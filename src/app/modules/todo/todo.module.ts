@@ -14,7 +14,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [CreateTodoComponent, ListTodoComponent],
   exports: [
-    CreateTodoComponent
+    CreateTodoComponent,
+    ListTodoComponent
   ],
   imports: [
     CommonModule,
